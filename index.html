@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        const computerOptions = ["rock","paper","scissors"];
+        let computerHand = computerOptions[Math.floor(Math.random()*computerOptions.length)];
+        let playerHand = "paper";
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function computerPlay() {
+            computerHand = computerOptions[Math.floor(Math.random()*computerOptions.length)];
+        }
+
+        function playRound(playerHand, computerHand) {
+            computerHand = computerOptions[Math.floor(Math.random()*computerOptions.length)];
+            //console.log(computerHand);
+            playerHand = prompt ("Rock, paper, scissors... SHOOT!", );
+            playerHand = playerHand.toLowerCase();
+            console.log("You played " + playerHand + " and the computer played " + computerHand);
+            if (playerHand == "rock"){
+                if (computerHand == "rock") {
+                    console.log("It's a tie! Try again.")
+                    playRound(playerHand, computerHand);
+                } else if (computerHand == "scissors"){
+                    playerScore++;
+                    console.log("Rock beats scissors! You win!");
+                } else {
+                    computerScore++;
+                    console.log("Ouch. Paper beats rock. You lose...");
+                }
+            } else if (playerHand == "paper"){
+                if (computerHand == "rock") {
+                    playerScore++;
+                    return "Paper beats rock! You win!";
+                } else if (computerHand == "scissors"){
+                    computerScore++;
+                    return "Ouchie. Scissors beat paper. You lose...";
+                } else {
+                    console.log("It's a tie! Try again.")
+                    playRound(playerHand, computerHand);
+                }
+            } else if (playerHand == "scissors") {
+                if (computerHand == "rock"){
+                    computerScore++;
+                    return "Ooooof. Rock beats scissors. Sorry. You lose.";
+                } else if (computerHand == "scissors") {
+                    console.log("It's a tie! Try again.")
+                    playRound(playerHand, computerHand);
+                } else {
+                    playerScore++;
+                    console.log("Haha! Scissors cut paper! You WIIIIINNNN!!!!");
+                }
+            } else {
+                console.log("Uh... that's not a valid entry.")
+                playRound(playerHand, computerHand);
+            }
+        }
+        // console.log(playRound(playerHand, computerHand))
+
+        function game() {
+            playerScore = 0;
+            computerScore = 0;
+            let gameNumber = 1;
+
+            console.log("Round " + gameNumber + " of 5");
+            console.log(playRound(playerHand, computerHand));
+            console.log("End of round " + gameNumber + ". The score is Computer: " + computerScore + " Player: " + playerScore)
+            gameNumber++;
+
+            console.log("Round " + gameNumber + " of 5");
+            console.log(playRound(playerHand, computerHand));
+            console.log("End of round " + gameNumber + ". The score is Computer: " + computerScore + " Player: " + playerScore)
+            gameNumber++;
+
+            console.log("Round " + gameNumber + " of 5");
+            console.log(playRound(playerHand, computerHand));
+            console.log("End of round " + gameNumber + ". The score is Computer: " + computerScore + " Player: " + playerScore)
+            gameNumber++;
+
+            console.log("Round " + gameNumber + " of 5");
+            console.log(playRound(playerHand, computerHand));
+            console.log("End of round " + gameNumber + ". The score is Computer: " + computerScore + " Player: " + playerScore)
+            gameNumber++;
+
+            console.log("Round " + gameNumber + " of 5");
+            console.log(playRound(playerHand, computerHand));
+            console.log("End of round " + gameNumber + ". The score is Computer: " + computerScore + " Player: " + playerScore)
+            gameNumber++;
+
+            if (playerScore > computerScore) {
+                console.log("****** YOU WIN THE WHOLE GAME! YOU ARE THE BEST! ******")
+            } else {
+                console.log("****** You lose. You're such a sucker. ******")
+            }
+        }
+
+        game();
+
+    </script>
+</body>
