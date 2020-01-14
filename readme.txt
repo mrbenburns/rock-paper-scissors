@@ -1,0 +1,1 @@
+Hello! I've never actually took the time to learn Javascript, so I'm tinkering around with the Odin course. It's fun for me - no judgement please, but if you have advice, I'd love to hear it. Thanks!
